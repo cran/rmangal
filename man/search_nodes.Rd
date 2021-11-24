@@ -7,7 +7,7 @@
 search_nodes(query, verbose = TRUE, ...)
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
 \item{verbose}{a \code{logical}. Should extra information be reported on progress?}
@@ -15,7 +15,8 @@ Note that if an empty character string is passed, then all datasets available ar
 \item{...}{further arguments to be passed to \code{\link[httr:GET]{httr::GET()}}.}
 }
 \value{
-An object of class \code{mgSearchNodes}, which is a \code{data.frame} including taxa #' matching the query and corresponding information.
+An object of class \code{mgSearchNodes}, which basically is a \code{data.frame} object
+including taxa that are matching the query and corresponding information.
 All networks in which taxa are involved are also attached to the \code{data.frame}.
 }
 \description{
@@ -38,12 +39,16 @@ For the \code{networks} table, those are:
 Note that for lists with more than one element, only the first element is used, the others are ignored. An example is provided below.
 }
 \examples{
-res_acer <- search_nodes("Acer")
-res_926 <- search_nodes(list(network_id = 926))
-
+\donttest{
+ res_acer <- search_nodes("Acer")
+ res_926 <- search_nodes(list(network_id = 926))
+}
 }
 \references{
-Metadata available at \url{https://mangal-wg.github.io/mangal-api/#nodes}
+\itemize{
+\item \url{https://mangal.io/#/}
+\item \url{https://mangal-interactions.github.io/mangal-api/#nodes}
+}
 }
 \seealso{
 \code{\link[=search_taxonomy]{search_taxonomy()}}

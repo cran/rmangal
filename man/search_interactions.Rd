@@ -13,10 +13,10 @@ search_interactions(
 )
 }
 \arguments{
-\item{query}{either a character string including a single keyword or a list containing a custom query (see details section below).
+\item{query}{either a character string including a single keyword or a named list containing a custom query (see details section below).
 Note that if an empty character string is passed, then all datasets available are returned.}
 
-\item{type}{a \code{character} one of the interactions type available, uses \code{\link[=avail_type]{avail_type()}} to see the full list of type available. Note that \code{query} is ignored if \code{type} is used.}
+\item{type}{a \code{character} one of the interactions type available (see details). Note that \code{query} is ignored if \code{type} is used.}
 
 \item{expand_node}{a logical. Should the function returned extra information pertaining to nodes? Default is set to \code{FALSE}, which means that only the Mangal IDs of nodes are returned.}
 
@@ -39,26 +39,43 @@ Alternatively, a named list can be used to look for an exact match in a specific
 Names of the list should match one of the column names within the table.
 For the \code{interaction} table, those are:
 \itemize{
-\item id: unique identifier of the interaction
-\item attr_id: identifier of a specific attribute
-\item direction: edge direction ("directed", "undirected" or "unknown")
-\item network_id: Mangal network identifier
-\item node_from: node id which the interaction end to
-\item node_to: node to which the interaction end to
-\item type: use argument \code{type} instead
+\item id: unique identifier of the interaction;
+\item attr_id: identifier of a specific attribute;
+\item direction: edge direction ("directed", "undirected" or "unknown");
+\item network_id: Mangal network identifier;
+\item node_from: node id which the interaction end to;
+\item node_to: node to which the interaction end to;
+\item type: use argument \code{type} instead.
 }
 
-Note that for lists with more than one element, only the first element is used, the others are ignored.
-Examples covering custom queries are provided below.
+Note that for lists with more than one element, only the first element is
+used, the others are ignored. The type of interactions (argument \code{type})
+currently available are the following
+\itemize{
+\item "competition";
+\item "amensalism";
+\item "neutralism";
+\item "commensalism";
+\item "mutualism";
+\item "parasitism";
+\item "predation";
+\item "herbivory";
+\item "symbiosis";
+\item "scavenger";
+\item "detritivore".
+}
 }
 \examples{
-df_inter <- search_interactions(type = "competition", verbose = FALSE)
-# Get all networks containing competition
 \donttest{
-competition_networks <- get_collection(df_inter, verbose = FALSE)
+ df_inter <- search_interactions(type = "competition", verbose = FALSE)
+ # Get all networks containing competition
+ competition_networks <- get_collection(df_inter, verbose = FALSE)
+ df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 }
-df_net_926 <- search_interactions(list(network_id = 926), verbose = FALSE)
 }
 \references{
-Metadata available at \url{https://mangal-wg.github.io/mangal-api/#interactions}
+\itemize{
+\item \url{https://mangal.io/#/}
+\item \url{https://mangal-interactions.github.io/mangal-api/#taxonomy}
+}
 }

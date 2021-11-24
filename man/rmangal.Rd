@@ -6,7 +6,7 @@
 \alias{rmangal-package}
 \title{rmangal}
 \description{
-A programmatic interface to the Mangal API \url{https://mangal-wg.github.io/mangal-api//}.
+A programmatic interface to the Mangal API \url{https://mangal-interactions.github.io/mangal-api/}.
 }
 \seealso{
 Useful links:
@@ -19,11 +19,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Steve Vissault \email{s.vissault@yahoo.fr} (\href{https://orcid.org/0000-0002-0866-4376}{ORCID})
+\strong{Maintainer}: Kevin Cazelles \email{kevin.cazelles@gmail.com} (\href{https://orcid.org/0000-0001-6619-9874}{ORCID})
 
 Authors:
 \itemize{
-  \item Kevin Cazelles \email{kcazelle@uoguelph.ca} (\href{https://orcid.org/0000-0001-6619-9874}{ORCID}) [contributor]
+  \item Steve Vissault \email{s.vissault@yahoo.fr} (\href{https://orcid.org/0000-0002-0866-4376}{ORCID}) [contributor]
   \item Gabriel Bergeron \email{gabriel.bergeron3@usherbrooke.ca} [contributor]
   \item Benjamin Mercier \email{Benjamin.B.Mercier@usherbrooke.ca} [contributor]
   \item Clément Violet \email{Clement.Violet@etudiant.univ-brest.fr} [contributor]
