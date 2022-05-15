@@ -1,3 +1,10 @@
+# rmangal (devel)
+
+* `inherits()` is now used to test classes.
+* `purrr` is no longer listed as an imported package.
+* Add lintr workflow to automatically check stylistic errors.
+* Summary method for `mgNetwork` objects now reports nodes and properly (see nodes #108).
+
 # rmangal 2.1.0
 
 * All examples are within the `\donttest` tag (see #100).
@@ -22,7 +29,7 @@
 # rmangal 2.0.0
 
 * Revisions see https://github.com/ropensci/software-review/issues/332;
-* add summary method []#87];
+* add summary method [#87];
 * `mg_to_igraph` is now `as.igraph()`;
 * `search_references()` has been rewritten [#85];
 * vignette now includes examples to use `tigygraph` and `ggraph`;
