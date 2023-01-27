@@ -1,4 +1,8 @@
-# rmangal (devel)
+# rmangal 2.1.2
+
+* Fixtures are now written in JSON.
+
+# rmangal 2.1.1
 
 * `inherits()` is now used to test classes.
 * `purrr` is no longer listed as an imported package.
@@ -42,8 +46,3 @@
 
 * Version submitted to ROpenSci for review;
 * Added a `NEWS.md` file to track changes to the package.
-
-
-# Previous version rmangal
-
-* See https://github.com/mangal-wg/rmangal-v1 for the first version. Note that due to changes in the RESTful API, there is no backward compatibility.

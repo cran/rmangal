@@ -136,13 +136,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -365,7 +372,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <ul>
 <li><a href="https://mangal.io/#/">a data explorer</a> to visualize and download data available;</li>
 <li>a <a href="https://mangal-interactions.github.io/mangal-api/">RESTful Application Programming Interface (API)</a>;</li>
-<li>a client library for Julia: <a href="https://github.com/EcoJulia/Mangal.jl">Mangal.jl</a>;</li>
+<li>a client library for Julia: <a href="https://github.com/PoisotLab/Mangal.jl">Mangal.jl</a>;</li>
 <li>a client of this API for R: the <strong>rmangal</strong> package described below.</li>
 </ul>
 <p>Currently, 172 datasets are including in the database representing over <a href="https://mangal.io/#/network">1300 ecological networks</a>. In 2016, the first paper describing the project was published and introduced the first release of <strong>rmangal</strong> <span class="citation">(Poisot et al. 2016)</span>. Since then, the structure of the database has been improved (new fields have been added), several ecological networks added and the API entirely rewritten. Consequently, <a href="https://github.com/mangal-interactions/rmangal-v1">the first release of the <strong>rmangal</strong></a> is obsolete (and archived) and we introduce <strong>rmangal v2.0</strong> in this vignette.</p>
@@ -817,7 +824,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p>Chamberlain, Scott, Eduard Szoecs, Zachary Foster, Zebulun Arendsee, Carl Boettiger, Karthik Ram, Ignasi Bartomeus, et al. 2019. <em>Taxize: Taxonomic Information from Around the Web</em>. <a href="https://github.com/ropensci/taxize">https://github.com/ropensci/taxize</a>.</p>
 </div>
 <div id="ref-poisot_mangal_2016">
-<p>Poisot, Timothée, Benjamin Baiser, Jennifer A. Dunne, Sonia Kéfi, François Massol, Nicolas Mouquet, Tamara N. Romanuk, Daniel B. Stouffer, Spencer A. Wood, and Dominique Gravel. 2016. “Mangal - Making Ecological Network Analysis Simple.” <em>Ecography</em> 39 (4): 384–90. <a href="https://doi.org/10.1111/ecog.00976">https://doi.org/10.1111/ecog.00976</a>.</p>
+<p>Poisot, Timothée, Benjamin Baiser, Jennifer A. Dunne, Sonia Kéfi, François Massol, Nicolas Mouquet, Tamara N. Romanuk, Daniel B. Stouffer, Spencer A. Wood, and Dominique Gravel. 2016. “Mangal - Making Ecological Network Analysis Simple.” <em>Ecography</em> 39 (4): 384–90.</p>
 </div>
 </div>
 </div>
